@@ -1,59 +1,14 @@
 <?php
 
-/**
- * simple data-flow example
- *
+declare(strict_types=1);
 
-    SomePlugin::makeImport($p_newsmlHolder, $p_inputFileName) {
-
-        $item_holder = null;
-
-        $input_file = fopen($p_inputFileName, "r");
-        while(false !== ($line = fgets($input_file))) {
-            switch($line) {
-                "item_start":
-                    if ($item_holder && $item_holder->isFilled()) {
-                        $p_newsmlHolder->appendItem($item_holder);
-                    }
-                    $item_holder = $p_newsmlHolder->createItem();
-                    break;
-                "some":
-                    $item_holder->setSome();
-                    break;
-                "another"
-                    $item_holder->setAnother();
-                    break;
-                default:
-                    break;
-            }
-        }
-        fclose($input_file);
-
-        if ($item_holder && $item_holder->isFilled()) {
-            $p_newsmlHolder->appendItem($item_holder);
-        }
-
-        $p_newsmlHolder->serializeSet();
-
-    } // fn makeImport
-
-    SystemServer::importRunner($p_pluginName) {
-
-        $newsml_holder = new NewsMLCreator();
-        $plugin_instance = ImportPlugger::getPlugin($p_pluginName);
-
-        $plugin_instance->makeImport($newsml_holder, $p_inputFileName);
-
-    } // fn importRunner
-
- */
-
+namespace CMSImports;
 
 /**
  * Base class for the importer plugins
  */
-class CMSImporterPlugin {
-
+abstract class CMSImporterPlugin
+{
     /**
      * Makes the data import: parses data from $p_inputFileName, and uses p_newsmlHolder for the formatting
      *
@@ -61,11 +16,11 @@ class CMSImporterPlugin {
      * @param string $p_inputFileName input file name
      * @return bool
      */
-    public function makeImport($p_newsmlHolder, $p_inputFileName) {
+    public function makeImport(NewsMLCreator $p_newsmlHolder, string $p_inputFileName): bool
+    {
         return false;
     }
-
-} // class CMSImporterPlugin
+}
 
 
 /**

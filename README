@@ -16,3 +16,15 @@ Public source code hosting: http://github.com/sourcefabric
 Download link: https://sourceforge.net/projects/newscoop/
 Developer's wiki: http://wiki.sourcefabric.org
 
+
+## Acknowledgements
+
+This codebase has been modernized from PHP 5.3 to PHP 8.3 with assistance from:
+
+- **Qwen** - AI assistant by Alibaba Cloud, providing code analysis and refactoring support
+- **SourceFabric** - Original creators and maintainers of Newscoop CMS
+
+For comprehensive guidance on redesigning the project layout and migrating to a Laravel-inspired architecture, see:
+- [Layout Redesign & Laravel Migration Strategy](LAYOUT_REDESIGN_AND_LARAVEL_MIGRATION.md)
+
+---
