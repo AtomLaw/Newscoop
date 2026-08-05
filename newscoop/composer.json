@@ -77,25 +77,26 @@
         "raulfraile/ladybug-bundle":"^1.1"
     },
     "autoload":{
-        "psr-0":{
-            "Newscoop":[
-                "src",
-                "library"
-            ],
-            "Resource":"library",
-            "Proxy":"library"
+        "psr-4":{
+            "Newscoop\\": "library/Newscoop/",
+            "Newscoop\\Bundle\\": "src/Newscoop/",
+            "Campsite\\": "classes/",
+            "Resource\\": "library/Resource/",
+            "Proxy\\": "library/Proxy/"
         },
         "classmap":[
-            "classes",
-            "template_engine",
-            "plugins",
-            "include",
-            "application"
+            "include/Date.php",
+            "include/File.php",
+            "include/Mail.php",
+            "include/System.php",
+            "include/PEAR.php",
+            "include/PEAR5.php"
+        ],
+        "files": [
+            "include/campsite_constants.php",
+            "include/campsite_init.php"
         ]
     },
-    "include-path":[
-        "include"
-    ],
     "scripts":{
         "post-install-cmd":[
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap"
